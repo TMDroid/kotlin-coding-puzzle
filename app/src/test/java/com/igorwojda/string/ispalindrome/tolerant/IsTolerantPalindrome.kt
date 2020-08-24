@@ -4,7 +4,19 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun isTolerantPalindrome(str: String, characterRemoved: Boolean = false): Boolean {
-    TODO("not implemented")
+    val half = str.length / 2
+    for (i in 0 until half) {
+        if(str[i] != str[str.length - i - 1]) {
+            if(characterRemoved) {
+                return false
+            }
+
+            val new = str.replace(str[i].toString(), "")
+            return isTolerantPalindrome(new, true)
+        }
+    }
+
+    return true
 }
 
 class IsTolerantPalindromeTest {

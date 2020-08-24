@@ -5,8 +5,8 @@ import org.junit.Test
 
 private fun isPalindrome(str: String): Boolean {
 
-    val len = str.length / 2
-    for (i in 0..len) {
+    val half = str.length / 2
+    for (i in 0 until half) {
         if(str[i] != str[str.length - i - 1]) {
             return false
         }
