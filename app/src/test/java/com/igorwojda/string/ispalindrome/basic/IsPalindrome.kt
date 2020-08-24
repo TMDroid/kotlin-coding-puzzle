@@ -4,7 +4,15 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun isPalindrome(str: String): Boolean {
-    TODO("not implemented")
+
+    val len = str.length / 2
+    for (i in 0..len) {
+        if(str[i] != str[str.length - i - 1]) {
+            return false
+        }
+    }
+
+    return true
 }
 
 class IsPalindromeTest {
