@@ -3,8 +3,25 @@ package com.igorwojda.string.isanagram
 import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
+fun getLetterFrequency(str: String): Map<Char, Int> {
+    return mutableMapOf<Char, Int>().apply {
+        for (letter in str.toLowerCase()) {
+            if(!letter.isLetterOrDigit()) continue
+
+            if (this.keys.contains(letter)) {
+                this[letter] = this[letter]!! + 1
+            } else {
+                this[letter] = 1
+            }
+        }
+    }
+}
+
 private fun isAnagram(str1: String, str2: String): Boolean {
-    TODO("not implemented")
+    val first = getLetterFrequency(str1)
+    val second = getLetterFrequency(str2)
+
+    return first == second
 }
 
 class AnagramTest {
