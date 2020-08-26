@@ -4,7 +4,18 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun fizzBuzz(n: Int): List<String> {
-    TODO("not implemented")
+    return mutableListOf<String>().apply {
+        (1..n).forEach {
+            add(
+                when {
+                    it % 3 == 0 && it % 5 == 0 -> "FizzBuzz"
+                    it % 3 == 0 -> "Fizz"
+                    it % 5 == 0 -> "Buzz"
+                    else -> it.toString()
+                }
+            )
+        }
+    }
 }
 
 class FizzBuzzTest {
