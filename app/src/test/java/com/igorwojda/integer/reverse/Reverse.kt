@@ -2,9 +2,14 @@ package com.igorwojda.integer.reverse
 
 import org.amshove.kluent.shouldEqual
 import org.junit.Test
+import kotlin.math.absoluteValue
+import kotlin.math.sign
 
 private fun reverseInt(i: Int): Int {
-    TODO("not implemented")
+    return i.absoluteValue
+        .toString()
+        .reversed()
+        .toInt() * i.sign
 }
 
 class ReverseIntTest {
