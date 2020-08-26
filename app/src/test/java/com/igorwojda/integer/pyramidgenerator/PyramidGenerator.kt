@@ -4,7 +4,12 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 fun generatePyramid(n: Int): List<String> {
-    TODO("not implemented")
+    return mutableListOf<String>().apply {
+        for(i in 0 until n) {
+            val row = " ".repeat(n - i - 1) + "#".repeat(2 * i + 1) + " ".repeat(n - i - 1)
+            this.add(row)
+        }
+    }
 }
 
 class PyramidGeneratorTest {
