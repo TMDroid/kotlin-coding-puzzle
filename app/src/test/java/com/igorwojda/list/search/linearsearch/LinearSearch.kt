@@ -4,7 +4,14 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun getIndex(list: List<String>, str: String): Int {
-    TODO("not implemented")
+    return list.let {
+        var index = -1
+        it.forEachIndexed { i, s ->
+            if(s == str) index = i
+        }
+
+        index
+    }
 }
 
 class LinearSearchTest {
