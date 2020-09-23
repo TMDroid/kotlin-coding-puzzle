@@ -2,24 +2,31 @@ package com.igorwojda.stack.basic
 
 import org.amshove.kluent.shouldEqual
 import org.junit.Test
+import java.util.*
 
 private class Stack<E> {
-    var size = 0
+    val list: MutableList<E> = LinkedList<E>()
+    val size
+        get() = list.size
 
     fun add(element: E) {
-        TODO("not implemented")
+        list.add(element)
     }
 
     fun remove(): E? {
-        TODO("not implemented")
+        return if(size > 0) {
+            list.removeAt(list.lastIndex)
+        } else null
     }
 
     fun peek(): E? {
-        TODO("not implemented")
+        return if(size > 0) {
+            list[list.lastIndex]
+        } else null
     }
 
     fun isEmpty(): Boolean {
-        TODO("not implemented")
+        return list.isEmpty()
     }
 }
 
