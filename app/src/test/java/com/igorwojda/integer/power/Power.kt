@@ -4,7 +4,7 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun power(base: Int, exponent: Int): Int {
-    TODO("not implemented")
+    return (1..exponent).fold(1) { acc, _ -> acc * base }
 }
 
 class PowerTest {
