@@ -4,7 +4,17 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 fun hasAverage(list: List<Int>, average: Double): Boolean {
-    TODO("not implemented")
+    list.forEachIndexed { i, a ->
+        list.forEachIndexed { j, b ->
+            if(i != j) {
+                if((a + b).toDouble() == average * 2) {
+                    return true
+                }
+            }
+        }
+    }
+
+    return false
 }
 
 private fun <E> MutableList<E>.aaa2(a: E) {
