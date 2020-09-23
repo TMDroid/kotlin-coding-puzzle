@@ -4,7 +4,17 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun equalDigitFrequency(i1: Int, i2: Int): Boolean {
-    TODO("not implemented")
+    val first = i1.digitFrequency()
+    val second = i2.digitFrequency()
+
+    return first.keys.size == second.keys.size && first.all {
+        val eq = second[it.key]
+        it.value.size == eq?.size
+    }
+}
+
+fun Int.digitFrequency(): Map<Char, List<Char>> {
+    return this.toString().groupBy { it }
 }
 
 class DigitFrequencyTest {
