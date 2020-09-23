@@ -4,7 +4,11 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun capitalizeFirst(list: List<String>): List<String> {
-    TODO("not implemented")
+    if (list.isEmpty()) return emptyList()
+
+    val list = list.toMutableList()
+    val first = list.removeFirst().capitalize()
+    return listOf(first) + capitalizeFirst(list)
 }
 
 class CapitalizeFirstTest {
@@ -25,6 +29,10 @@ class CapitalizeFirstTest {
 
     @Test
     fun `capitalize list with sentence`() {
-        capitalizeFirst(listOf("what a", "beautiful", "morning")) shouldEqual listOf("What a", "Beautiful", "Morning")
+        capitalizeFirst(listOf("what a", "beautiful", "morning")) shouldEqual listOf(
+            "What a",
+            "Beautiful",
+            "Morning"
+        )
     }
 }
