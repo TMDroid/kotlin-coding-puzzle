@@ -4,7 +4,11 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun capitalizeSentence(str: String): String {
-    TODO("not implemented")
+    str.let {
+        return it.split(" ").joinToString(" ") { word ->
+            word.capitalize()
+        }
+    }
 }
 
 class CapitalizeSentenceTest {
