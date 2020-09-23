@@ -2,19 +2,30 @@ package com.igorwojda.queue.combine
 
 import org.amshove.kluent.shouldEqual
 import org.junit.Test
+import kotlin.math.min
 
 private fun combine(q1: Queue<*>, q2: Queue<*>): Queue<*> {
-    TODO("not implemented")
+    return Queue<Any?>().apply {
+        while(true) {
+            q1.remove()?.let { this.add(it) }
+            q2.remove()?.let { this.add(it) }
+
+            if(q1.size == 0 && q2.size == 0) {
+                break
+            }
+        }
+    }
 }
 
 private class Queue<E> {
-    private val list = mutableListOf<E>()
+    val list = mutableListOf<E>()
+    val size get() = list.size
 
     fun add(element: E) {
         list.add(element)
     }
 
-    fun remove() = if (list.isEmpty()) null else list.removeAt(0)
+    fun remove() = if (isEmpty()) null else list.removeAt(0)
 
     fun peek() = list.firstOrNull()
 
