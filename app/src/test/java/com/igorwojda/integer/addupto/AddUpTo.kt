@@ -4,7 +4,7 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun addUpTo(n: Int): Int {
-    TODO("not implemented")
+    return (1..n).reduce { acc, i -> acc + i }
 }
 
 class AddUpToTest {
