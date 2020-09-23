@@ -4,7 +4,15 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun decapitalizeConst(str: String): String {
-    TODO("not implemented")
+    return str.split("_")
+        .filter { it.isNotEmpty() }
+        .toMutableList()
+        .mapIndexed { index, s ->
+            when (index) {
+                0 -> s.toLowerCase()
+                else -> s.toLowerCase().capitalize()
+            }
+        }.joinToString("")
 }
 
 class DecapitalizeConstTest {
