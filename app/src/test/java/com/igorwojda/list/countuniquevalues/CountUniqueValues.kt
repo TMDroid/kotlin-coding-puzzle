@@ -4,7 +4,7 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun countUniqueValues(list: List<Int>): Int {
-    TODO("not implemented")
+    return list.toSet().size
 }
 
 class CountUniqueValuesTest {
