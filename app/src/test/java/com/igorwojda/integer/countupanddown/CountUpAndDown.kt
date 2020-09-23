@@ -4,7 +4,7 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun countUpAndDown(n: Int): List<Int> {
-    TODO("not implemented")
+    return (0 until n) + (n downTo 0)
 }
 
 class CountUpAndDownTest {
