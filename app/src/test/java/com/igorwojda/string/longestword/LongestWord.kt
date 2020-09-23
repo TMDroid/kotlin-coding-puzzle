@@ -4,7 +4,16 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun longestWord(str: String): String {
-    TODO("not implemented")
+    return str.replace(Regex("[.,\\/#!\$%\\^&\\*;:{}=\\-_`~()]"), " ")
+        .split(" ")
+        .filter { it.isNotEmpty() }
+        .fold("") { acc, s ->
+            if(s.length > acc.length) {
+                return@fold s
+            }
+
+            acc
+        }
 }
 
 class LongestWordTest {
