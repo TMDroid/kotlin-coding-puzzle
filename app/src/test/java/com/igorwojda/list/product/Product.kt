@@ -4,7 +4,7 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun product(list: List<Int>): Int {
-    TODO("not implemented")
+    return list.fold(1) { acc, i -> acc * i }
 }
 
 class ProductTest {
