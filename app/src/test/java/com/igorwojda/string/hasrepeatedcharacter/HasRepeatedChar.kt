@@ -4,7 +4,14 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun hasRepeatedChar(str: String): Boolean {
-    TODO("not implemented")
+    val chars = HashSet<Char>()
+
+    str.forEach {
+        if(chars.contains(it)) return true
+        chars.add(it)
+    }
+
+    return false
 }
 
 class RepeatedCharacterTest {
