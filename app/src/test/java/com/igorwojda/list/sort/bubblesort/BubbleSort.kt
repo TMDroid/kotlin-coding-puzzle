@@ -4,7 +4,17 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun bubbleSort(list: List<Int>): List<Number> {
-    TODO("not implemented")
+    return list.toMutableList().apply {
+        forEachIndexed { i, one ->
+            forEachIndexed { j, two ->
+
+                if(this[i] < this[j]) {
+                    this[i] = this[j].also { this[j] = this[i] }
+                }
+
+            }
+        }
+    }
 }
 
 class BubbleSortTest {
