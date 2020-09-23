@@ -4,7 +4,14 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun encodeCaesarCipher(str: String, shift: Int): String {
-    TODO("not implemented")
+    val alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    return str.map {
+        val index = alphabet.indexOf(it)
+
+        val newIndex = (index + shift) % alphabet.length
+        alphabet[newIndex]
+    }.joinToString("")
 }
 
 class CaesarCipherTest {
