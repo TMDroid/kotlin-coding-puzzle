@@ -4,7 +4,17 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun sumZero(list: List<Int>): Pair<Int, Int>? {
-    TODO("not implemented")
+    list.forEachIndexed { i, a ->
+        list.forEachIndexed { j, b ->
+            if(i != j) {
+                if(a + b == 0) {
+                    return Pair(a, b)
+                }
+            }
+        }
+    }
+
+    return null
 }
 
 class SumZeroTest {
