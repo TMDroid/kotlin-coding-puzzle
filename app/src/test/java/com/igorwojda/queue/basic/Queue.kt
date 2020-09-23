@@ -2,22 +2,27 @@ package com.igorwojda.queue.basic
 
 import org.amshove.kluent.shouldEqual
 import org.junit.Test
+import java.util.*
 
 private class Queue<E> {
-    var size = 0
-        private set
+    val list = LinkedList<E>()
+    val size get() = list.size
 
     fun add(element: E) {
-        TODO("not implemented")
+        list.add(element)
     }
 
-    fun remove(): E? = TODO("not implemented")
-
-    fun peek(): E? = TODO("not implemented")
-
-    fun isEmpty(): Boolean {
-        TODO("not implemented")
+    fun remove(): E? {
+        return if (size > 0) list.removeAt(0)
+        else null
     }
+
+    fun peek(): E? {
+        return if (size > 0) list[0]
+        else null
+    }
+
+    fun isEmpty() = list.isEmpty()
 }
 
 class QueueTest {
