@@ -4,7 +4,16 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 private fun formatTrainRoute(stations: List<String>): String {
-    TODO("not implemented")
+    val mutableStations = stations.toMutableList()
+    val lastStation = if(mutableStations.size > 1) mutableStations.removeLast() else null
+
+    return "Train is calling at ${mutableStations.joinToString(", ")}".let {
+        if(lastStation != null) {
+            return@let "$it and $lastStation"
+        }
+
+        it
+    }
 }
 
 class TrainRouteTest {
